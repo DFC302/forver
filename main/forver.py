@@ -36,7 +36,7 @@ def options():
 
 	parser.add_argument(
 		"-f", "--force",
-		help="Use this flag to force --domains or --ips flag if parser suspected wrong file or flag usage.",
+		help="Use this flag to force --domains or --ips flag if forver suspected wrong file or flag usage.",
 		action="store_true",
 	)
 
