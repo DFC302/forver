@@ -12,7 +12,7 @@ setuptools.setup(
 	description="A tool to perform quick forward and reverse DNS look-ups.",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
-	url="https://github.com/DFC302/ctd",
+	url="https://github.com/DFC302/forver",
         keywords=['DNS', 'forward', 'reverse', 'ip', 'domain', 'lookup'],
 	packages=setuptools.find_packages(),
         install_requires=[
