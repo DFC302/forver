@@ -27,7 +27,7 @@ setuptools.setup(
      ],
      entry_points={
             'console_scripts': [
-                "forver = main.forver:main",
+                "forver = forver_main.forver:main",
             ],
         },
 )
