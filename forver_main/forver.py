@@ -40,6 +40,12 @@ def options():
 		action="store_true",
 	)
 
+	parser.add_argument(
+		"-s", "--single",
+		help="Use this flag with the --ips or --domains flag to search a single IP or domain.",
+		action="store_true",
+	)
+
 	# if not arguments are given, print usage message
 	if len(sys.argv[1:]) == 0:
 		parser.print_help()
@@ -48,6 +54,18 @@ def options():
 	args = parser.parse_args()
 
 	return args
+
+def single_search():
+	if options().domains:
+		host = options().domains.replace("http://", "").replace("https://", "").strip("\n")
+
+		IP = socket.gethostbyname(host)
+		print(f"HOSTNAME: {host} | IP: {IP}")
+
+	elif options().ips:
+		hostname = socket.gethostbyaddr(options().ips)[0]
+		print(f"IP {options().ips} | HOSTNAME: {hostname}")
+
 
 def threadExecution():
 	if options().threads:
@@ -145,7 +163,11 @@ def ipSearch(ip):
 				wf.write(f"IP {ip} | HOSTNAME: {e}\n")
 
 def main():
-	threadExecution()
+	if options().single:
+		single_search()
+
+	else:
+		threadExecution()
 
 if __name__ == "__main__":
 	main()
